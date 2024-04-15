@@ -1,54 +1,41 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// icons
-import { TablerIconsModule } from 'angular-tabler-icons';
-import * as TablerIcons from 'angular-tabler-icons/icons';
-
-//Import all material modules
-import { MaterialModule } from './material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-//Import Layouts
-import { FullComponent } from './layouts/full/full.component';
-import { BlankComponent } from './layouts/blank/blank.component';
-
-// Vertical Layout
-import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { HeaderComponent } from './layouts/full/header/header.component';
-import { BrandingComponent } from './layouts/full/sidebar/branding.component';
-import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-
+import { NgModule } from '@angular/core';
+import { StockComponent } from './stock/stock.component';
+import { ReglementComponent } from './reglement/reglement.component';
+import { SecteurActiviteComponent } from './secteur-activite/secteur-activite.component';
+import { OperateurComponent } from './operateur/operateur.component';
+import { FactureComponent } from './facture/facture.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FullComponent,
-    BlankComponent,
-    SidebarComponent,
-    HeaderComponent,
-    BrandingComponent,
-    AppNavItemComponent,
+    ProductsComponent,
+    StockComponent,
+    ReglementComponent,
+    SecteurActiviteComponent,
+    OperateurComponent,
+    FactureComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    TablerIconsModule.pick(TablerIcons),
-    BrowserAnimationsModule,
-    RouterModule
+    NgbModalModule,
+    RouterModule,
+    NgbModule
   ],
-  exports: [TablerIconsModule],
-  bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

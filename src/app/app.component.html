@@ -1,1 +1,49 @@
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-11" style="margin-left: 20px">
+    <h3 style="margin-top: 20px">List Users </h3>
+    <hr>
+    <button class="btn btn-round btn-sm btn-success">Add new User</button>
+    <br><br>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Date de naissance</th>
+        <th>CIN</th>
+        <th>Ecole</th>
+        <th>Numero de telephone</th>
+        <th>Adresse</th>
+        <th>Ville</th>
+        <th>Code postal</th>
+        <th>Specialite</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let p of listEtudiants'>
+        <td> {{p.idEtudiant}} </td>
+        <td> {{p.nom}} </td>
+        <td> {{p.prenom}} </td>
+        <td> {{p.dateNaissance}} </td>
+        <td> {{p.cin}} </td>
+        <td> {{p.ecole}} </td>
+        <td> {{p.numeroTelephone}} </td>
+        <td> {{p.adresse}} </td>
+        <td> {{p.ville}} </td>
+        <td> {{p.codePostal}} </td>
+        <td> {{p.specialite}} </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary">Edit
+          </button>
+          &nbsp;
+          <button type="button" class="btn btn-outline-danger">Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

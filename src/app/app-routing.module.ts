@@ -1,40 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlankComponent } from './layouts/blank/blank.component';
-import { FullComponent } from './layouts/full/full.component';
-import { HomePageComponent } from './pages/home/home-page/home-page.component';
-import { AuthentificationGuard } from './authentification.guard';
-import { RoleGuard } from './role.guard';
+import { ProductsComponent } from './products/products.component';
+import { StockComponent } from './stock/stock.component';
+import { ReglementComponent } from './reglement/reglement.component';
+import { SecteurActiviteComponent } from './secteur-activite/secteur-activite.component';
+import { OperateurComponent } from './operateur/operateur.component';
+import { FactureComponent } from './facture/facture.component';
 
-const routes: Routes = [
-  {
-    path:"main",
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-    //canActivate: [AuthentificationGuard]
-  },
-  {
-    path: '',
-    redirectTo: '/authentication/login',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
-    component: BlankComponent,
-    children: [
-      {
-        path: 'authentication',
-        loadChildren: () =>
-          import('./pages/authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
-      },
-    ],
-  },
 
-];
+const routes: Routes =[
+  { path: 'secteurActivite',  component: SecteurActiviteComponent },
+  { path: 'operateur',  component: OperateurComponent },
+  { path: 'facture',  component: FactureComponent },
+  { path: 'product',  component: ProductsComponent },
+  { path: 'stock',  component: StockComponent },
+  { path: 'reglement',  component: ReglementComponent },
+  {path: '', redirectTo: 'product', pathMatch: 'full'}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
